@@ -1,0 +1,76 @@
+<h2>{{ salesman.name }}</h2>
+<p>Employee code: {{ salesman.code }}</p>
+<p>Employee ID: {{ salesman.employee_ID }}</p>
+<p>Department: {{ salesman.department }}</p>
+<p>Year of Performance: {{ salesman.year_of_performance }}</p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Criteria</th>
+        <th>Target Value</th>
+        <th>Value</th>
+        <th>Bonus</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let performance of performance">
+        <td>Leadership Competence</td>
+        <td>4</td>
+        <td>{{performance.leadership}}</td>
+        <td>{{L_Bonus}}</td>
+    </tr>
+    <tr *ngFor="let performance of performance">
+        <td>Openness to Employee</td>
+        <td>4</td>
+        <td>{{performance.openness}}</td>
+        <td>{{O_Bonus}}</td>
+    </tr>
+    <tr *ngFor="let performance of performance">
+        <td>Social behavior to employee</td>
+        <td>4</td>
+        <td>{{performance.social}}</td>
+        <td>{{S_Bonus}}</td>
+    </tr>
+    <tr *ngFor="let performance of performance">
+        <td>Attitude towards client</td>
+        <td>4</td>
+        <td>{{performance.attitude}}</td>
+        <td>{{A_Bonus}}</td>
+    </tr>
+    <tr *ngFor="let performance of performance">
+        <td>Communication skills</td>
+        <td>4</td>
+        <td>{{performance.communication}}</td>
+        <td>{{C_Bonus}}</td>
+    </tr>
+    <tr *ngFor="let performance of performance">
+        <td>Integrity to company</td>
+        <td>4</td>
+        <td>{{performance.integrity}}</td>
+        <td>{{I_Bonus}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>Total Bonus</td>
+        <td>{{Total_Bonus}}</td>
+    </tr>
+    </tbody>
+</table>
+<form (ngSubmit)="updateRemark()">
+    <div class="form-group">
+        <label for="remarks">Remarks:</label>
+        <textarea class="form-control" id="remarks" rows="3" *ngFor="let performance of performance" [(ngModel)]="remark"name="remarks">{{performance.remark}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button (click)="storeBonus()" class="btn btn-primary">Store Bonus</button>
+</form>
+<div *ngFor="let performance of performance">
+<p>Remarks: {{performance.remark}}</p>
+</div>
+<input type="checkbox" (change)="CEOapprove()"> Approve Bonus by CEO
+
+<div id="opencrx">
+<p *ngFor="let evaluation of evaluation">{{evaluation.name}}</p>
+</div>

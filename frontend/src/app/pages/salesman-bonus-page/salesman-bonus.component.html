@@ -1,0 +1,14 @@
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let salesman of salesmen">
+        <td>{{salesman.name}}</td>
+        <td><button (click)="getBonusComputationSheet(salesman)">Request Bonus Computation Sheet</button></td>
+    </tr>
+    </tbody>
+</table>
